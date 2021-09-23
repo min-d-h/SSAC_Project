@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Min's Travel</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static './css/mypage.css' %}">
+
+</head>
+<body>
+    <div class="container-fluid ps-md-0">
+        <div class="row img_s g-0">
+            <div class="col-md-8 col-lg-6">
+                <div class="login d-flex align-items-center py-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9 col-lg-8 mx-auto">
+                            <h3 class="login-heading mb-4">{{www}}님이 찾으신 비밀번호</h3>
+                            <!-- Sign In Form -->
+                                <div class="form-floating mb-1">
+                                    <input type="text" class="form-control" name="id" value="{{qqq}}" readonly/>
+                                    <label for="floatingInput">비밀번호 확인</label>
+                                </div>
+                                <div class="d-grid">
+                                    <a class="btn btn-lg btn-info btn-login text-uppercase fw-bold mb-2" href="{% url 'login' %}">로그인으로 돌아가기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-none d-md-flex col-md-4 col-lg-5 bg-image">
+                <img src="{% static './img/my-1.jpg' %}">
+            </div>
+        </div>
+    </div>
+    </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static './css/signup.css' %}">
+
+</head>
+<body>
+
+    <div class="container-fluid ps-md-0">
+        <div class="row img_s g-0">
+            <div class="col-md-8 col-lg-6">
+                <div class="login d-flex align-items-center py-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9 col-lg-8 mx-auto">
+                            <h3 class="login-heading mb-4">회원가입</h3>
+                            <!-- Sign In Form -->
+                            <form action="../signup_s/" onsubmit="return ccheck()" method="post" name="info">
+                                {% csrf_token %}
+                                <input type="hidden" name="registered"/>
+                                <div class="form-floating mb-1">
+                                    <input type="text" class="form-control" name="name" placeholder="이름을 입력해주세요.">
+                                    <label for="floatingInput">User name</label>
+                                </div>
+                                <div class="form-floating mb-1">
+                                    <input type="text" class="form-control" name="id" placeholder="아이디를 입력해주세요."/>
+                                    <label for="floatingInput">ID</label>
+                                </div>
+                                <div class="form-floating mb-1">
+                                    <input type="password" class="form-control" id="pwd1" name="pwd" placeholder="비밀번호를 입력해주세요."/>
+                                    <label for="floatingPassword">Password</label>
+                                </div>
+                                <div class="form-floating mb-1">
+                                    <input type="password" class="form-control" id="pwd2" name="pwdconfirm" placeholder="비밀번호를 확인해주세요." onchange="confirm1()"/>
+                                    <label id="check" for="floatingPassword">Password check</label>
+                                </div>
+                                <div class="form-floating mb-1">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="E-mail을 입력해주세요." onchange="checkemail()"/>
+                                    <label for="floatingInput">이메일</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="radio" name="gender" id="man" value="M" />남자
+                                    <input type="radio" name="gender" id="woman" value="W" />여자
+                                </div>
+                                <div class="form-floating mb-1">
+                                    <input type="text" class="form-control" name="tt" placeholder="한줄소개를 입력해주세요.">
+                                    <label for="floatingInput">한줄평</label>
+                                </div>
+                                <button class="btn btn-lg btn-info btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
+                                </form>
+                                    <div class="d-grid">
+                                        <!-- 여기는 버튼-->
+                                        <div class="text-center">
+                                            <a class="small" href="#">reset!</a>
+                                                <span>&#47;</span>
+                                            <a class="small" href="#">Forgot password?</a>
+                                        </div>
+                                    </div>
+                                <form action="../login_s/" method="post" name="info">
+                                    {% csrf_token %}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-none d-md-flex col-md-4 col-lg-5 bg-image">
+                <img src="{% static './img/my-1.jpg' %}">
+            </div>
+        </div>
+    </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function confirm1(conf) {
+            var p1 = document.getElementById('pwd1').value;
+            var p2 = document.getElementById('pwd2').value;
+            if( p1 != p2 ) {
+                document.getElementById('check').innerHTML='비밀번호가 일치하지 않습니다.';
+                document.getElementById('check').style.color='red';
+                console.log(check);
+            } else {
+                document.getElementById('check').innerHTML='비밀번호가 일치합니다.';
+                document.getElementById('check').style.color='skyBlue';
+                console.log(check);
+            }
+        }
+    </script>
+
+        </body>
+</html>
