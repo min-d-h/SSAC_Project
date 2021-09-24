@@ -29,3 +29,8 @@ class Tproducts (models.Model) :
 
     COUNT = (('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'))
     count = models.CharField(max_length=1, verbose_name='인원수', choices=COUNT)
+
+class User_and_T (models.Model):
+    idid = models.AutoField(primary_key=True)
+    U_id = models.ForeignKey("User", related_name="User", on_delete=models.CASCADE, db_column="User")
+    T_id = models.ForeignKey("Tproducts", related_name="Tproducts", on_delete=models.CASCADE, db_column="Tproducts")

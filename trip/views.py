@@ -175,8 +175,8 @@ def search (req) :
     return render (req, 'search.html')
 
 def pw_search1 (req) :
-    search1 = User.objects.filter(userid=req.POST.get('id'), username=req.POST.get('name')).values_list(('password'), flat=True).first()  # {'course_code': 11}
-    user_name = username=req.POST.get('name')
+    search1 = User.objects.filter(userid=req.POST.get('id'), username=req.POST.get('name')).values_list(('password'), flat=True).first()
+    user_name = req.POST.get('name')
     if search1 :
         print(search1)
         return render (req, 'pw_search1.html', {'qqq':search1, 'www':user_name})
@@ -309,6 +309,16 @@ def cart (req) :
         return redirect('../payment/')
 
 ###############################################
+# My_ticket
+###############################################
+def m_ticket (req):
+    sess = req.session.get('userid')
+    check_c = User.objects.get(userid=sess)
+    # search1 = User.objects.filter(userid=req.POST.get('id'), username=req.POST.get('name')).values_list(('password'), flat=True).first()
+    qq = Tproducts.objects.filter(tname=req.POST.get('tname'))
+    return render(req, 'm_ticket.html')
+
+###############################################
 # 한줄 게시판 # 디테일 페이지 
 ###############################################
 # def mynote (req):
@@ -354,17 +364,14 @@ def cart (req) :
 #             word_dictionary[word] = 1
 #     return render(req, 'new.html', {'fulltext': full_text, 'total': len(word_list), 'dictionary': word_dictionary.items()} )
 
-def m_ticket (req):
-    return render(req, 'm_ticket.html')
-
 # 날씨를 정합시다!!
-def weather (req):
-    try:
-        sess = req.session.get('userid')
-        check_c = User.objects.get(userid=sess)
-        if check_c :
-            print ("세션 확인")
-            print(req.session["userid"])
-        return render (req, 'weather.html', {'ssss':sess, 'nnnn':check_c})
-    except :
-        return render (req, 'weather.html')
+# def weather (req):
+#     try:
+#         sess = req.session.get('userid')
+#         check_c = User.objects.get(userid=sess)
+#         if check_c :
+#             print ("세션 확인")
+#             print(req.session["userid"])
+#         return render (req, 'weather.html', {'ssss':sess, 'nnnn':check_c})
+#     except :
+#         return render (req, 'weather.html')
