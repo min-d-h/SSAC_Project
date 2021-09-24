@@ -274,31 +274,39 @@ def payment (req):
 def cart (req) :
     print("여기 타냐?")
     sess = req.session.get('userid')
-    check_c = User.objects.get(userid=sess)
-    t_check = Tproducts.objects.get(tname=req.POST.get('tname'))
-    print (t_check)
-    if not t_check :
-        if check_c :
-            print("여기는 if야")
-            ppp = Tproducts (
-                start_date=req.POST.get('start_date'),
-                tname=req.POST.get('tname'),
-                s_trip1=req.POST.get('s_trip1'),
-                s_trip2=req.POST.get('s_trip2'),
-                country=req.POST.get('country'),
-                count=req.POST.get('count'),
-            )
-            print('ppp 끝났어')
-            ppp.save ()
-            print ("카트에 저장")
-            # return render (req, 'cart.html', {'ssss':sess, 'nnnn':check_c})
-            return redirect ('../cart/')
+    try :
+        print(sess)
+        check_c = User.objects.get(userid=sess)
+        print(check_c)
+        qowo = req.POST.get('tname')
+        print(qowo)
+        t_check = Tproducts.objects.filter(tname=req.POST.get('tname'))
+        print (t_check)
+        if not t_check :
+            if check_c :
+                print("여기는 if야")
+                ppp = Tproducts (
+                    start_date=req.POST.get('start_date'),
+                    tname=req.POST.get('tname'),
+                    s_trip1=req.POST.get('s_trip1'),
+                    s_trip2=req.POST.get('s_trip2'),
+                    country=req.POST.get('country'),
+                    count=req.POST.get('count'),
+                )
+                print('ppp 끝났어')
+                ppp.save ()
+                print ("카트에 저장")
+                # return render (req, 'cart.html', {'ssss':sess, 'nnnn':check_c})
+                return redirect ('../cart/')
+            else :
+                return redirect ('../payment/')
         else :
+            print( '세션 확인하세요.' )
+            messages.success (req, '하나 이상의 여행지를 선택하실 수 없습니다.')
             return redirect ('../payment/')
-    else :
-        print( '세션 확인하세요.' )
-        messages.success (req, '하나 이상의 여행지를 선택하실 수 없습니다.')
-        return redirect ('../payment/')
+    except ObjectDoesNotExist:
+        print("cart에서 try 못탐")
+        return redirect('../payment/')
 
 ###############################################
 # 한줄 게시판 # 디테일 페이지 
