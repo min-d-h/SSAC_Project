@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#!">Travel destination.</a>
+            <a class="navbar-brand" id="toptop" href="#!!">Travel destination.</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,13 +29,13 @@
                         <a class="nav-link active" aria-current="page">어디로 여행가세요? {{nnnn.username}}님</a>
                     </li>
                 </ul>
-                <form class="d-flex">
+                <!-- <form class="d-flex">
                     <button class="btn btn-outline-dark" type="submit">
                         <i class="bi-cart-fill me-1"></i>
                         Cart
                         <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                     </button>
-                </form>
+                </form> -->
             </div>
         </div>
     </nav>
@@ -79,8 +79,8 @@
                         </div>
                         <div class="col-4 price_result">
                             <h1 class="display-4 fw-bolder" id="poi">버튼</h1>
-                            <button type="submit">써브밋!</button>
-                            <p class="lead fw-normal text-white-50 mb-0">With this shop</p>
+                            <button class="mt-2 btn btn-outline-light mt-auto" type="submit">여행가기!</button>
+                            <!-- <p class="lead fw-normal text-white-50 mb-0">With this shop</p> -->
                         </div>
                     </div>
                 </div>
@@ -95,6 +95,8 @@
 
 -->
 <section class="py-5">
+    {{ Tproducts.get_country_display }}
+    {{ Tproducts.country }}
     질문<br>
     1. 해당값을 가져와 input에 넣었는데, value값을 읽지 못해 null값으로 전달하게 됨.
         input에 넣었을 때 null값이 되는 이유와, nullㅣ 안되는 방법.<br>
@@ -108,8 +110,10 @@
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             <div class="col mb-5">
                 <div class="card h-100">
+                    <!-- Sale badge-->
+                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Ready</div>
                     <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <img class="card-img-top" src="{% get_static_prefix %}img/pay/{{bb1}}.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
@@ -117,7 +121,7 @@
                             <div class="fw-bolder" id="tname1" name="tname1" value="basic">유럽 Baisc</div>
                             <!-- Product price-->
                             <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill" name="country" value="swi">스위스</div>
+                                <div class="bi-star-fill" id="country1" name="country1" value="gr">{{bbn1}}</div>
                                 <div class="bi-star-fill">-5박6일</div>
                             </div>
                             <span class="text-muted">5성급 호텔<br>
@@ -126,7 +130,7 @@
                                 툰호수
                             </span>
                             <br>
-                            <select id="count" name="count1">
+                            <select id="count1" name="count1">
                                 <option value="1">1명</option>
                                 <option value="2">2명</option>
                             </select>
@@ -135,17 +139,15 @@
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div class="text-center">
-                            <button type="button" class="btn btn-outline-dark mt-auto" href="#" onclick="cccc(this)" id="1">선택하기</button>
+                            <button type="button" class="btn btn-outline-dark mt-auto" href="#" onclick="cccc1()" id="1">선택하기</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col mb-5">
                 <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                     <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <img class="card-img-top" src="{% get_static_prefix %}img/pay/{{bb2}}.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
@@ -153,7 +155,7 @@
                             <div class="fw-bolder" id="tname2" name="tname2" value="basic2">유럽 Baisc2</div>
                             <!-- Product price-->
                             <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill" name="country" value="net">네덜란드</div>
+                                <div class="bi-star-fill" id="country2" name="country2" value="net">{{bbn2}}</div>
                                 <div class="bi-star-fill">-5박6일</div>
                             </div>
                             <span class="text-muted">5성급 호텔<br>
@@ -162,7 +164,7 @@
                                 툰호수
                             </span>
                             <br>
-                            <select id="count" name="count2">
+                            <select id="count2" name="count2">
                                 <option value="1">1명</option>
                                 <option value="2">2명</option>
                             </select>
@@ -171,7 +173,7 @@
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div class="text-center">
-                            <button type="button" class="btn btn-outline-dark mt-auto" href="#" onclick="cccc(this)" id="2">선택하기</button>
+                            <button type="button" class="btn btn-outline-dark mt-auto" href="#" onclick="cccc2()" id="2">선택하기</button>
                         </div>
                     </div>
                 </div>
@@ -179,17 +181,17 @@
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <!-- <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div> -->
                     <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <img class="card-img-top" src="{% get_static_prefix %}img/pay/{{bb3}}.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
-                            <div class="fw-bolder" id="tname3" name="tname3" value="basic3">유럽 Baisc</div>
+                            <div class="fw-bolder" id="tname3" name="tname3" value="basic3">유럽 Baisc3</div>
                             <!-- Product price-->
                             <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill" name="country3" value="eng">영국</div>
+                                <div class="bi-star-fill" id="country3" name="country3" value="swi">{{bbn3}}</div>
                                 <div class="bi-star-fill">-5박6일</div>
                             </div>
                             <span class="text-muted">5성급 호텔<br>
@@ -198,7 +200,7 @@
                                 툰호수
                             </span>
                             <br>
-                            <select id="count" name="count3">
+                            <select id="count3" name="count3">
                                 <option value="1">1명</option>
                                 <option value="2">2명</option>
                             </select>
@@ -207,7 +209,7 @@
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div class="text-center">
-                            <button type="button" class="btn btn-outline-dark mt-auto" href="#" onclick="cccc(this)" id="3">Add to cart</button>
+                            <button type="button" class="btn btn-outline-dark mt-auto" href="#" onclick="cccc3()" id="3">선택하기</button>
                         </div>
                     </div>
                 </div>
@@ -215,125 +217,242 @@
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <img class="card-img-top" src="{% get_static_prefix %}img/pay/{{bb4}}.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
-                            <h5 class="fw-bolder">Popular Item</h5>
-                            <!-- Product reviews-->
-                            <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                            </div>
+                            <div class="fw-bolder" id="tname4" name="tname4" value="basic">유럽 Baisc4</div>
                             <!-- Product price-->
-                            $40.00
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill" id="country4" name="country4" value="eng">{{bbn4}}</div>
+                                <div class="bi-star-fill">-5박6일</div>
+                            </div>
+                            <span class="text-muted">5성급 호텔<br>
+                                체르마트<br>
+                                융프라우<br>
+                                툰호수
+                            </span>
+                            <br>
+                            <select id="count4" name="count4">
+                                <option value="1">1명</option>
+                                <option value="2">2명</option>
+                            </select>
                         </div>
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-outline-dark mt-auto" href="#" onclick="cccc4()" id="4">선택하기</button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <!-- <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div> -->
                     <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <img class="card-img-top" src="{% get_static_prefix %}img/pay/{{bb5}}.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
-                            <h5 class="fw-bolder">Sale Item</h5>
+                            <div class="fw-bolder" id="tname5" name="tname5" value="basic">유럽 Baisc5</div>
                             <!-- Product price-->
-                            <span class="text-muted text-decoration-line-through">$50.00</span>
-                            $25.00
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill" id="country5" name="country5" value="cze">{{bbn5}}</div>
+                                <div class="bi-star-fill">-5박6일</div>
+                            </div>
+                            <span class="text-muted">5성급 호텔<br>
+                                체르마트<br>
+                                융프라우<br>
+                                툰호수
+                            </span>
+                            <br>
+                            <select id="count5" name="count5">
+                                <option value="1">1명</option>
+                                <option value="2">2명</option>
+                            </select>
                         </div>
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-outline-dark mt-auto" href="#" onclick="cccc5()" id="5">선택하기</button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <img class="card-img-top" src="{% get_static_prefix %}img/pay/{{bb6}}.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
-                            <h5 class="fw-bolder">Fancy Product</h5>
+                            <div class="fw-bolder" id="tname6" name="tname6" value="basic">유럽 Baisc6</div>
                             <!-- Product price-->
-                            $120.00 - $280.00
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill" id="country6" name="country6" value="spa">{{bbn6}}</div>
+                                <div class="bi-star-fill">-5박6일</div>
+                            </div>
+                            <span class="text-muted">5성급 호텔<br>
+                                체르마트<br>
+                                융프라우<br>
+                                툰호수
+                            </span>
+                            <br>
+                            <select id="count6" name="count6">
+                                <option value="1">1명</option>
+                                <option value="2">2명</option>
+                            </select>
                         </div>
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-outline-dark mt-auto" href="#" onclick="cccc6()" id="6">선택하기</button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <!-- <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div> -->
                     <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <img class="card-img-top" src="{% get_static_prefix %}img/pay/{{aa1}}.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
-                            <h5 class="fw-bolder">Special Item</h5>
-                            <!-- Product reviews-->
-                            <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                            </div>
+                            <div class="fw-bolder" id="tname7" name="tname7" value="basic">아시아 Baisc1</div>
                             <!-- Product price-->
-                            <span class="text-muted text-decoration-line-through">$20.00</span>
-                            $18.00
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill" id="country7" name="country7" value="sin">{{aan1}}</div>
+                                <div class="bi-star-fill">-5박6일</div>
+                            </div>
+                            <span class="text-muted">5성급 호텔<br>
+                                체르마트<br>
+                                융프라우<br>
+                                툰호수
+                            </span>
+                            <br>
+                            <select id="count7" name="count7">
+                                <option value="1">1명</option>
+                                <option value="2">2명</option>
+                            </select>
                         </div>
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-outline-dark mt-auto" href="#" onclick="cccc7()" id="7">선택하기</button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <img class="card-img-top" src="{% get_static_prefix %}img/pay/{{aa2}}.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
-                            <h5 class="fw-bolder">Popular Item</h5>
-                            <!-- Product reviews-->
-                            <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                            </div>
+                            <div class="fw-bolder" id="tname8" name="tname8" value="basic">아시아 Baisc2</div>
                             <!-- Product price-->
-                            $40.00
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill" id="country8" name="country8" value="thi">{{aan2}}</div>
+                                <div class="bi-star-fill">-5박6일</div>
+                            </div>
+                            <span class="text-muted">5성급 호텔<br>
+                                체르마트<br>
+                                융프라우<br>
+                                툰호수
+                            </span>
+                            <br>
+                            <select id="count8" name="count8">
+                                <option value="1">1명</option>
+                                <option value="2">2명</option>
+                            </select>
                         </div>
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-outline-dark mt-auto" href="#" onclick="cccc8()" id="8">선택하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="{% get_static_prefix %}img/pay/{{aa3}}.png" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <div class="fw-bolder" id="tname9" name="tname9" value="아시아 basic">아시아 Baisc3</div>
+                            <!-- Product price-->
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill" id="country9" name="country9" value="tur">{{aan3}}</div>
+                                <div class="bi-star-fill">-5박6일</div>
+                            </div>
+                            <span class="text-muted">5성급 호텔<br>
+                                체르마트<br>
+                                융프라우<br>
+                                툰호수
+                            </span>
+                            <br>
+                            <select id="count9" name="count9">
+                                <option value="1">1명</option>
+                                <option value="2">2명</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <button type="button" class="btn btn-outline-dark mt-auto" href="#" onclick="cccc9()" id="9">선택하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="{% get_static_prefix %}img/pay/{{aa4}}.png" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <div class="fw-bolder" id="tname10" name="tname10" value="basic">아시아 Baisc4</div>
+                            <!-- Product price-->
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <div class="bi-star-fill" id="country10" name="country10" value="tai">{{aan4}}</div>
+                                <div class="bi-star-fill">-5박6일</div>
+                            </div>
+                            <span class="text-muted">5성급 호텔<br>
+                                체르마트<br>
+                                융프라우<br>
+                                툰호수
+                            </span>
+                            <br>
+                            <select id="count10" name="count10">
+                                <option value="1">1명</option>
+                                <option value="2">2명</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <button type="button" class="btn btn-outline-dark mt-auto" href="#" onclick="cccc10()" id="10">선택하기</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -342,57 +461,103 @@
 </section>
 
     <script type="text/javascript">
-//     $(document).ready(function() {
-//         const tname = $('#tname').attr('value');
-//         const country = $('#country').attr('value');
-//         const count = $("select[name=count]").val();
-//         const b1 = $('#b_1');
-//         const b2 = $('#b_2');
-//         const b3 = $('#b_3');
-
-//         function cccc(e) {
-//         alert(e.tname);
-//         $('#pp1').html('<input type="text" class="input-group input-group-sm" name="tname" id="tname1" value="'+tname+'"></input>');
-//         $('#pp2').html('<input type="text" class="input-group input-group-sm" name="country" id="country1" value="'+country+'"></input>');
-//         $('#pp3').html('<input type="text" class="input-group input-group-sm" name="count" id="count1" value="'+count+'"></input>');
-//     }
-//     b1.on('click', cccc);
-//     b2.on('click', cccc);
-//     b3.on('click', cccc);
-// });
-
-    function cccc(button) {
-            const rr1 = $('#tname1').attr('value') == null;
-            const rr2 = $('#country1').attr('value') == null;
-            const rr3 = $("select[name=count1]").val() == null;
-        var x = button.id;
-        alert (x)
-        switch (x) {
-            case '1':
-                const tname1 = $('#tname1').attr('value');
-                const country1 = $('#country1').attr('value');
-                const count1 = $("select[name=count1]").val();
-                console.log(tname1)
-                $('#pp1').html('<input type="text" class="input-group input-group-sm" name="tname" value="'+tname1+'"></input>');
-                $('#pp2').html('<input type="text" class="input-group input-group-sm" name="country" value="'+country1+'"></input>');
-                $('#pp3').html('<input type="text" class="input-group input-group-sm" name="count" value="'+count1+'"></input>');
-                break;
-            case '2':
-                const tname2 = $('#tname2').attr('value');
-                const country2 = $('#country2').attr('value');
-                const count2 = $("select[name=count2]").val();
-                console.log(tname2)
-                $('#pp1').html('<input type="text" class="input-group input-group-sm" name="tname" id="tname1" value="'+tname2+'"></input>');
-                $('#pp2').html('<input type="text" class="input-group input-group-sm" name="country" id="country1" value="'+country2+'"></input>');
-                $('#pp3').html('<input type="text" class="input-group input-group-sm" name="count" id="count1" value="'+count2+'"></input>');
-                break;
-            case '3':
-                cccc(x);
-                break;
-            default:
-                return false;
-        }
+        let m_1 = '<input type="text" class="input-group input-group-sm" name="tname" value="';
+        let m_2 = '<input type="text" class="input-group input-group-sm" name="country" value="';
+        let m_3 = '<input type="text" class="input-group input-group-sm" name="count" value="';
+        let m_4 = '"readonly ></input>';
+    function cccc1() {
+        const rr1 = $('#tname1').attr('value');
+        const rr2 = $('#country1').attr('value');
+        const rr3 = $("select[name=count1]").val();
+        $('#pp1').html(m_1 + rr1 + m_4);
+        $('#pp2').html(m_2 + rr2 + m_4);
+        $('#pp3').html(m_3 + rr3 + m_4);
+        document.documentElement.scrollTop = 0;
     }
+    function cccc2() {
+        const rr1 = $('#tname2').attr('value');
+        const rr2 = $('#country2').attr('value');
+        const rr3 = $("select[name=count2]").val();
+        $('#pp1').html(m_1 + rr1 + m_4);
+        $('#pp2').html(m_2 + rr2 + m_4);
+        $('#pp3').html(m_3 + rr3 + m_4);
+        document.documentElement.scrollTop = 0;
+    }
+    function cccc3() {
+        const rr1 = $('#tname3').attr('value');
+        const rr2 = $('#country3').attr('value');
+        const rr3 = $("select[name=count3]").val();
+        $('#pp1').html(m_1 + rr1 + m_4);
+        $('#pp2').html(m_2 + rr2 + m_4);
+        $('#pp3').html(m_3 + rr3 + m_4);
+        document.documentElement.scrollTop = 0;
+    }
+    function cccc4() {
+        const rr1 = $('#tname4').attr('value');
+        const rr2 = $('#country4').attr('value');
+        const rr3 = $("select[name=count4]").val();
+        $('#pp1').html(m_1 + rr1 + m_4);
+        $('#pp2').html(m_2 + rr2 + m_4);
+        $('#pp3').html(m_3 + rr3 + m_4);
+        document.documentElement.scrollTop = 0;
+    }
+    function cccc5() {
+        const rr1 = $('#tname5').attr('value');
+        const rr2 = $('#country5').attr('value');
+        const rr3 = $("select[name=count5]").val();
+        $('#pp1').html(m_1 + rr1 + m_4);
+        $('#pp2').html(m_2 + rr2 + m_4);
+        $('#pp3').html(m_3 + rr3 + m_4);
+        document.documentElement.scrollTop = 0;
+    }
+    function cccc6() {
+        const rr1 = $('#tname6').attr('value');
+        const rr2 = $('#country6').attr('value');
+        const rr3 = $("select[name=count6]").val();
+        $('#pp1').html(m_1 + rr1 + m_4);
+        $('#pp2').html(m_2 + rr2 + m_4);
+        $('#pp3').html(m_3 + rr3 + m_4);
+        document.documentElement.scrollTop = 0;
+    }
+    // 여기서부터는 아시아 상품
+    function cccc7() {
+        const rr1 = $('#tname7').attr('value');
+        const rr2 = $('#country7').attr('value');
+        const rr3 = $("select[name=count7]").val();
+        $('#pp1').html(m_1 + rr1 + m_4);
+        $('#pp2').html(m_2 + rr2 + m_4);
+        $('#pp3').html(m_3 + rr3 + m_4);
+        document.documentElement.scrollTop = 0;
+    }
+    function cccc8() {
+        const rr1 = $('#tname8').attr('value');
+        const rr2 = $('#country8').attr('value');
+        const rr3 = $("select[name=count8]").val();
+        $('#pp1').html(m_1 + rr1 + m_4);
+        $('#pp2').html(m_2 + rr2 + m_4);
+        $('#pp3').html(m_3 + rr3 + m_4);
+        document.documentElement.scrollTop = 0;
+    }
+    function cccc9() {
+        const rr1 = $('#tname9').attr('value');
+        const rr2 = $('#country9').attr('value');
+        const rr3 = $("select[name=count9]").val();
+        $('#pp1').html(m_1 + rr1 + m_4);
+        $('#pp2').html(m_2 + rr2 + m_4);
+        $('#pp3').html(m_3 + rr3 + m_4);
+        document.documentElement.scrollTop = 0;
+    }
+    function cccc10() {
+        const rr1 = $('#tname10').attr('value');
+        const rr2 = $('#country10').attr('value');
+        const rr3 = $("select[name=count10]").val();
+        $('#pp1').html(m_1 + rr1 + m_4);
+        $('#pp2').html(m_2 + rr2 + m_4);
+        $('#pp3').html(m_3 + rr3 + m_4);
+        document.documentElement.scrollTop = 0;
+    }
+
+
 
     $(function () { 
     $('#datetimepicker1').datetimepicker({ format: "YYYY-MM-DD"});
@@ -412,18 +577,6 @@
     </footer>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <link rel="stylesheet" href="{% static './js/cart.js' %}">
     
 </body>
-    <!--
-    ('eng', '영국'), ('spa', '스페인'), ('net', '네덜란드'), ('ran', '프랑스')
-    ('ita', '이탈리아'), ('swi', '스위스'), ('cze', '체코'),
-    ('tur', '터키'), ('hon', '홍콩'), ('thi', '태국')
-    -->
-<!-- 
-    <input type="text" class="input-group input-group-sm" name="tname" id="tname" placeholder="상품이름" value="유럽상품2" required="">
-    <input type="text" class="input-group input-group-sm" name="country" id="country" placeholder="나라" value="eng" required="">
-    <input type="text" class="input-group input-group-sm" name="count" id="count" placeholder="명수" value="1" required=""> -->
-
 </html>

@@ -183,6 +183,123 @@ def pw_search1 (req) :
     else : 
         return  redirect('../search/')
 
+############################################################################################################################################################################################
+############################################################################################################################################################################################
+############################################################################################################################################################################################
+###############################################
+# 결제 페이지
+###############################################
+def payment (req):
+        sess = req.session.get('userid')
+        check_c = User.objects.get(userid=sess)
+        if sess :
+            print("세션확인, payment페이지")
+            #랜덤 이미지 돌리는 구간
+            rand_bb1 = random.randint(1, 2)
+            rand_bb2 = random.randint(3, 4)
+            rand_bb3 = random.randint(5, 6)
+            rand_bb4 = random.randint(7, 8)
+            rand_bb5 = random.randint(9, 10)
+            rand_bb6 = random.randint(11, 12)
+            euimg = ['eu1', 'eu2', 'eu3', 'eu4', 'eu5', 'eu6', 'eu7', 'eu8',
+                        'eu11', 'eu12', 'eu13', 'eu14']
+            euname = ['독일', '독일', '네덜란드', '네덜란드', '스위스', '스위스', '영국', '영국', 
+                        '체코', '체코', '스페인', '스페인']
+            bb1 = euimg[rand_bb1-1]
+            bbn1 = euname[rand_bb1-1]
+            bb2 = euimg[rand_bb2-1]
+            bbn2 = euname[rand_bb2-1]
+            bb3 = euimg[rand_bb3-1]
+            bbn3 = euname[rand_bb3-1]
+            bb4 = euimg[rand_bb4-1]
+            bbn4 = euname[rand_bb4-1]
+            bb5 = euimg[rand_bb5-1]
+            bbn5 = euname[rand_bb5-1]
+            bb6 = euimg[rand_bb6-1]
+            bbn6 = euname[rand_bb6-1]
+            # 아시아 
+            #        ('tur', '터키'), ('hon', '홍콩'), ('thi', '태국')
+            rand_aa1 = random.randint(1, 2)
+            rand_aa2 = random.randint(3, 4)
+            rand_aa3 = random.randint(5, 6)
+            rand_aa4 = random.randint(7, 8)
+            a_pic = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8']
+            a_name = ['싱가포르', '싱가포르', '태국', '태국', '터키', '터키', '대만', '대만']
+            aa1 = a_pic[rand_aa1-1]
+            aan1 = a_name[rand_aa1-1]
+            aa2 = a_pic[rand_aa2-1]
+            aan2 = a_name[rand_aa2-1]
+            aa3 = a_pic[rand_aa3-1]
+            aan3 = a_name[rand_aa3-1]
+            aa4 = a_pic[rand_aa4-1]
+            aan4 = a_name[rand_aa4-1]
+            contact = {
+                'ssss':sess,
+                'nnnn':check_c,
+                # 유럽 상품 이미지
+                'bb1' : bb1,
+                'bbn1' : bbn1,
+                'bb2' : bb2,
+                'bbn2' : bbn2,
+                'bb3' : bb3,
+                'bbn3' : bbn3,
+                'bb4' : bb4,
+                'bbn4' : bbn4,
+                'bb5' : bb5,
+                'bbn5' : bbn5,
+                'bb6' : bb6,
+                'bbn6' : bbn6,
+                # 아시아 상품 이미지
+                'aa1' : aa1,
+                'aan1' : aan1,
+                'aa2' : aa2,
+                'aan2' : aan2,
+                'aa3' : aa3,
+                'aan3' : aan3,
+                'aa4' : aa4,
+                'aan4' : aan4,
+
+                # 'asdf' :country
+            }
+
+            check_c = User.objects.get(userid=sess)
+            return render (req, 'payment.html', contact)
+        else :
+            return redirect ('../main/')
+    # return render(req, 'main.html')
+
+###############################################
+# 장바구니
+###############################################
+def cart (req) :
+    print("여기 타냐?")
+    sess = req.session.get('userid')
+    check_c = User.objects.get(userid=sess)
+    t_check = Tproducts.objects.get(tname=req.POST.get('tname'))
+    print (t_check)
+    if not t_check :
+        if check_c :
+            print("여기는 if야")
+            ppp = Tproducts (
+                start_date=req.POST.get('start_date'),
+                tname=req.POST.get('tname'),
+                s_trip1=req.POST.get('s_trip1'),
+                s_trip2=req.POST.get('s_trip2'),
+                country=req.POST.get('country'),
+                count=req.POST.get('count'),
+            )
+            print('ppp 끝났어')
+            ppp.save ()
+            print ("카트에 저장")
+            # return render (req, 'cart.html', {'ssss':sess, 'nnnn':check_c})
+            return redirect ('../cart/')
+        else :
+            return redirect ('../payment/')
+    else :
+        print( '세션 확인하세요.' )
+        messages.success (req, '하나 이상의 여행지를 선택하실 수 없습니다.')
+        return redirect ('../payment/')
+
 ###############################################
 # 한줄 게시판 # 디테일 페이지 
 ###############################################
@@ -229,34 +346,6 @@ def pw_search1 (req) :
 #             word_dictionary[word] = 1
 #     return render(req, 'new.html', {'fulltext': full_text, 'total': len(word_list), 'dictionary': word_dictionary.items()} )
 
-
-###############################################
-# 장바구니
-###############################################
-def cart (req) :
-    print("여기 타냐?")
-    sess = req.session.get('userid')
-    check_c = User.objects.get(userid=sess)
-    # t_check = Tproducts.objects.get(tname=req.POST.get('tname'))
-    if check_c :
-        print("여기는 if야")
-        ppp = Tproducts (
-            start_date=req.POST.get('start_date'),
-            tname=req.POST.get('tname1'),
-            s_trip1=req.POST.get('s_trip1'),
-            s_trip2=req.POST.get('s_trip2'),
-            country=req.POST.get('country1'),
-            count=req.POST.get('count1'),
-        )
-        print('ppp 끝났어')
-        ppp.save ()
-        print ("카트에 저장")
-        # return render (req, 'cart.html', {'ssss':sess, 'nnnn':check_c})
-        return redirect ('../cart/')
-    else :
-        print( '세션 확인하세요.' )
-        return redirect ('../main/')
-
 def m_ticket (req):
     return render(req, 'm_ticket.html')
 
@@ -271,17 +360,3 @@ def weather (req):
         return render (req, 'weather.html', {'ssss':sess, 'nnnn':check_c})
     except :
         return render (req, 'weather.html')
-
-
-###############################################
-# 결제 페이지
-###############################################
-def payment (req):
-        sess = req.session.get('userid')
-        if sess :
-            print("세션확인, payment페이지")
-            check_c = User.objects.get(userid=sess)
-            return render (req, 'payment.html', {'ssss':sess, 'nnnn':check_c})
-        else :
-            return redirect ('../main/')
-    # return render(req, 'main.html')

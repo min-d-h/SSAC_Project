@@ -21,9 +21,9 @@ class Tproducts (models.Model) :
     s_trip2 = models.DateField(verbose_name='도착날짜')
 
     COUNTRY = (
-        ('eng', '영국'), ('spa', '스페인'), ('net', '네덜란드'), ('ran', '프랑스'),
+        ('gr', '독일'), ('eng', '영국'), ('spa', '스페인'), ('net', '네덜란드'), ('ran', '프랑스'),
         ('ita', '이탈리아'), ('swi', '스위스'), ('cze', '체코'),
-        ('tur', '터키'), ('hon', '홍콩'), ('thi', '태국')
+        ('sin', '싱가포르'), ('tur', '터키'), ('thi', '태국'), ('tai', '대만')
         )
     country=models.CharField(max_length=3, verbose_name='여행국가', choices=COUNTRY)
 
