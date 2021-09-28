@@ -42,6 +42,7 @@
     <!-- Header-->
     <form action="../cart/" method="post">
         {% csrf_token%}
+        <input type="hidden" name="t_userid" value="{{nnnn.username}}"/>
         <header class="bg-dark py-3">
             <div class="container px-lg-4 my-3">
                 <div class="text-center text-white justify-content-around">
@@ -95,17 +96,6 @@
 
 -->
 <section class="py-5">
-    {{ Tproducts.get_country_display }}
-    {{ Tproducts.country }}
-    질문<br>
-    1. 해당값을 가져와 input에 넣었는데, value값을 읽지 못해 null값으로 전달하게 됨.
-        input에 넣었을 때 null값이 되는 이유와, nullㅣ 안되는 방법.<br>
-    2. jquery 를 이용해 .html로 해당 위치에 값을 넣으려 하는데
-        동일한 name을 사용할 시 읽어오지 못함 (undefined) 이것을 개별로 불러올 수 있도록
-        switch / case를 사용해 버튼 누르고 해당 case에 맞을 때 마다 변수를 새로 선언해주는데도 읽지 못함.
-        이것을 버튼을 누르고 스크립트를 읽을 때 마다 null -> 값 순서대로 들어가게 되면 코딩이 길어지는데,
-        그냥 해당 위치에 값을 엎을 수 있는 방법이 있을까??
-
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             <div class="col mb-5">

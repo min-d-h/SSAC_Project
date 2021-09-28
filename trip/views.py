@@ -184,9 +184,6 @@ def pw_search1 (req) :
     else : 
         return  redirect('../search/')
 
-############################################################################################################################################################################################
-############################################################################################################################################################################################
-############################################################################################################################################################################################
 ###############################################
 # 결제 페이지
 ###############################################
@@ -287,6 +284,7 @@ def cart (req) :
             if check_c :
                 print("여기는 if야")
                 ppp = Tproducts (
+                    t_userid=req.POST.get('t_userid'),
                     start_date=req.POST.get('start_date'),
                     tname=req.POST.get('tname'),
                     s_trip1=req.POST.get('s_trip1'),
@@ -298,7 +296,7 @@ def cart (req) :
                 ppp.save ()
                 print ("카트에 저장")
                 # return render (req, 'cart.html', {'ssss':sess, 'nnnn':check_c})
-                return redirect ('../cart/')
+                return redirect ('../m_ticket/')
             else :
                 return redirect ('../payment/')
         else :
@@ -315,9 +313,14 @@ def cart (req) :
 def m_ticket (req):
     sess = req.session.get('userid')
     check_c = User.objects.get(userid=sess)
-    # search1 = User.objects.filter(userid=req.POST.get('id'), username=req.POST.get('name')).values_list(('password'), flat=True).first()
-    qq = Tproducts.objects.filter(tname=req.POST.get('tname'))
-    return render(req, 'm_ticket.html')
+    # tpro_detail = get_object_or_404(Tproducts, pk=tpro_id)
+    tproducts_all = Tproducts.objects
+    contact = {
+        't_all' : tproducts_all,
+        'check_c' : check_c,
+        # 'tpro_detail' : tpro_detail
+    }
+    return render (req, 'm_ticket.html', contact)
 
 ###############################################
 # 메모장
@@ -337,7 +340,7 @@ def memo(req):
     memo.b_name = req.POST['b_name']
     memo.title = req.POST['title']
     memo.body = req.POST['body']
-    # memo.img = req.POST['img']
+    memo.t_img = req.FILES.get('t_img')
     memo.pub_date = timezone.datetime.now()
     memo.save()
     return redirect('../m_detail/' + str(memo.id))
@@ -358,31 +361,18 @@ def m_detail(req, memo_id):
     memo = Memo.objects
     memo_detail = get_object_or_404(Memo, pk=memo_id)
     contact ={
-        'check_c':check_c,
-        'memo1':memo,
-        'memo2':memo_detail
+        'check_c' : check_c,
+        'memo1' : memo,
+        'memo2' : memo_detail
     }
-    return render(req, 'm_detail.html', contact)
-
-# def update(req, memo_id):
-#     memo = Memo.objects.get(id=memo_id)
-#     if req.method =='POST':
-#         form = MemoUpdate(req.POST)
-#         if form.is_valid():
-#             memo.title = form.cleaned_data['제목']
-#             memo.body = form.cleaned_data['body']
-#             memo.pub_date = timezone.now()
-#             memo.save()
-#             return redirect('/trip/m_detail/' + str(memo.id))
-#     else:
-#         form = MemoUpdate(instance = memo)
-#         return render(req, 'update.html', {'form':form})
+    return render (req, 'm_detail.html', contact)
 
 def update(req, memo_id):
     memo = Memo.objects.get(id=memo_id)
     if req.method == "POST":
         memo.title = req.POST['title']
         memo.body = req.POST['body']
+        memo.t_img = req.FILES.get('t_img')
         memo.pub_date = timezone.datetime.now()
         memo.save()
         return redirect('/trip/m_detail/' + str(memo.id))

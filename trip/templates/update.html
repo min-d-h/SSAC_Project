@@ -1,18 +1,22 @@
 <br>
 <div class="container">
-	<form method="post">
+	<form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <!-- <table>
-            {{form.as_table}}
-        </table> -->
-            <h4>제목: </h4>
-            <input type="text" name="title">
-            <br>
-            <br>
-            <h4>본문: </h4>
-            <textarea cols=40 rows=10 name="body"></textarea>
+        <span>제목</span><input type="text" name="title">
+        <br>
+        <h4>본문: </h4>
+        <textarea cols=40 rows=10 name="body"></textarea>
+        <br>
+        <h4>사진: </h4>
+        <input type="file" name="t_img" accept="image/*">
+        <span>이미지 사이즈는 600x400입니다.</span>
         <br>
         <br>
-        <input class="btn btn-dark" type="submit" value="수정하기">
+        <input class="btn btn-dark" type="submit" value="글쓰기">
     </form>
 </div>
+
+
+<!-- <table>
+    {{form.as_table}}
+</table> -->

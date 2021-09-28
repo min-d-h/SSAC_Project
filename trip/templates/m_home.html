@@ -1,21 +1,124 @@
-<h1>여기는 메모 홈 입니다.</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>notes dashboard - Bootdey.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static './css/home.css' %}">
+    <script src="{% static './js/home.js' %}"></script>
 
-환영합니다 {{check_c.username}} 님
-<br>
-<a href="{% url 'm_create' %}">게시판 글 생성</a>
-<br>
-<br>
-<span>DB.all list</span>{{memo}}
-<br>
-<span>DB.all list in value</span>{{memo.all}}
+    <div class="page-content container note-has-grid">
+        <ul class="nav nav-pills p-3 bg-white mb-3 rounded-pill align-items-center">
+            <li class="nav-item">
+                <span class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2 active" id="all-category">
+                    <i class="icon-layers mr-1"></i><span class="d-none d-md-block">안녕하세요. {{check_c.username}}님</span>
+                </span>
+            </li>
+            <li class="nav-item ml-auto">
+                <a href="javascript:void(0)" class="nav-link btn-primary rounded-pill d-flex align-items-center px-3" id="add-notes">
+                    <i class="icon-note m-1"></i>
+                    <span class="d-none d-md-block font-14">Add Notes</span>
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content bg-transparent">
+            <div id="note-full-container" class="note-has-grid row">
+                {% for memo in memo.all reversed %}
+                <div class="col-md-4 single-note-item all-category">
+                    <div class="card card-body">
+                        <span class="side-stick"></span>
+                        <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Go for lunch">{{ memo.title}} </h5>
+                        <p class="note-date font-12 text-muted">작성자: {{ memo.b_name }}</p>
+                        {{ memo.pub_date }}
+                        <div class="note-content">
+                            <p class="note-inner-content text-muted" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
+                                {{ memo.body }}
+                            </p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            {% if memo.t_img %}
+                            <span class="mr-1"><i class="fa fa-picture-o"></i></span>
+                            {% endif %}
+                            <span class="mr-1"><a href="{% url 'm_detail' memo.id %}">자세히보기</a></span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
 
-<br><br>
-return list value
-<!-- 사용자 아이디 추가해서 해당 아이디가 적은 글 박아버리기-->
-{% for memo in memo.all %}
-    <h1> {{ memo.title}} </h1>
-    <div> 사용자 아이디 : {{ memo.b_name }}</div>
-    <div> {{ memo.pub_date }} </div>
-    <div> {{ memo.body }} </div>
-    <a href="{% url 'm_detail' memo.id %}">자세히보기</a>
-{% endfor %}
+        <!-- Modal Add notes -->
+        <div class="modal fade" id="addnotesmodal" tabindex="-1" role="dialog" aria-labelledby="addnotesmodalTitle" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content border-0">
+                    <div class="modal-header bg-info text-white">
+                        <h5 class="modal-title text-white">Add Notes</h5>
+                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form id="ssub_mit" action="../memo/" enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="notes-box">
+                            <div class="notes-content">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <div class="note-title">
+                                            <label>사용자</label>
+                                            <input type="text" class="form-control" name="b_name" value="{{check_c.username}}" readonly><br>
+                                            <label>제목</label>
+                                            <input type="text" class="form-control" name="title" minlength="4" placeholder="Title" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="note-description">
+                                            <label>내용</label>
+                                            <textarea id="note-has-description" name="body" class="form-control" minlength="3" placeholder="Description" rows="3"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="note-description">
+                                            <label>이미지</label><br>
+                                            <input type="file" name="t_img" accept="image/*" multiple>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-danger" data-dismiss="modal">Discard</button>
+                            <input id="ssub_mit_btn" type="submit" class="btn btn-info" value="추가하기"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $('ssub_mit').on('submit', function(e){
+                e.preventDefault();
+                $.ajax({
+                    url: '../memo/',
+                    type: 'POST',
+                    data: $("ssub_mit").serialize(),
+                    success: function(data){
+                        alert("Successfully submitted.")
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

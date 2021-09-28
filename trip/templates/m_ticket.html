@@ -15,6 +15,61 @@
         <link rel="stylesheet" href="{% static './css/m_ticket.css' %}">
     </head>
 <body>
+    <a type="button" href="{% url 'mypage' %}">Mypage</a>
+    <a type="button" href="{% url 'main' %}">Main</a>
+    {% for t_all in t_all.all reversed %}
+    {% if t_all.t_userid == check_c.username %}
+
+    <div class="container register">
+        <div class="row ticket_gr">
+            <div class="col-md-3 register-left">
+                <img src="{% static './img/t-1.png' %}" alt=""/>
+                <h3>Welcome</h3>
+                <p>Check the ticket you chose.</p>
+            </div>
+            <div class="col-md-9 register-right">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading">{{check_c.username}}님 Travel Ticket</h3>
+                        <h3>
+                            {{t_all.all}}
+                        </h3>
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span>상품</span>
+                                    <input type="text" class="form-control" placeholder="사용자 상품" value="{{t_all.tname}}" />
+                                </div>
+                                <div class="form-group">
+                                    <span>여행지</span>
+                                    <input type="text" class="form-control" placeholder="가는 국가" value="{{t_all.get_country_display}}" />
+                                </div>
+                                <div class="form-group">
+                                    <span>인원</span>
+                                    <input type="text" class="form-control"  placeholder="함께가는 인원" value="{{t_all.count}}" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span>가는날짜</span>
+                                    <input type="text" class="form-control" placeholder="가는날짜" value="{{t_all.s_trip1}}" />
+                                </div>
+                                <div class="form-group">
+                                    <span>오는날짜</span>
+                                    <input type="text" class="form-control" placeholder="여기는 날짜 박고" value="{{t_all.s_trip2}}" />
+                                </div>
+                                <div class="form-group">
+                                    <span>결제일</span>
+                                    <input type="text" class="form-control" placeholder="오는날짜" value="{{t_all.start_date}}" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% elif not t_all.t_userid %}
     <div class="container register">
         <div class="row">
             <div class="col-md-3 register-left">
@@ -26,46 +81,26 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">My Travel Ticket</h3>
+                        <h3>
+                            {{t_all.all}}
+                        </h3>
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="사용자 이름" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="사용자 상품" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="가는 국가" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control"  placeholder="함께가는 인원" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <a class="small" href="{% url 'main' %}">Main</a>
-                                    <span>&#09;&#124;&#124;</span>
-                                    <a class="small" href="{% url 'mypage' %}">마이페이지</a>
+                                    <input type="text" class="form-control" placeholder="결제내역이 " value="" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="가는날짜" value="" />
+                                    <input type="email" class="form-control" placeholder="없음" value="" />
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="여기는 날짜 박고" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="오는날짜" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="여기는 날짜 박고" value="" />
-                                </div>
-                                <input type="submit" class="btnRegister"  value="Register"/>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>		                            
+    </div>
+    {% endif %}
+    {% endfor %}
 </body>
 </html>

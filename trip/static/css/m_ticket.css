@@ -1,6 +1,8 @@
 .register{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-    margin-top: 6%;
+    /* background: -webkit-linear-gradient(left, #3931af, #00c6ff); */
+    background: -webkit-linear-gradient(top, #0f1ba5d6, #fcfeff);
+    margin-top: 4%;
+    margin-bottom: 2%;
     padding: 3%;
 }
 .register-left{
@@ -92,4 +94,8 @@
     margin-top: 8%;
     margin-bottom: -15%;
     color: #495057;
+}
+.ticket_gr{
+    margin-right: -30px;
+    margin-left: -35px;
 }

@@ -8,10 +8,11 @@ window.addEventListener('DOMContentLoaded', event => {
         }
         if (window.scrollY === 0) {
             navbarCollapsible.classList.remove('navbar-shrink')
+            $("#username_c").css("color", "#fcfeffd6")
         } else {
             navbarCollapsible.classList.add('navbar-shrink')
+            $("#username_c").css("color", "#303030d6")
         }
-
     };
 
     // Shrink the navbar 

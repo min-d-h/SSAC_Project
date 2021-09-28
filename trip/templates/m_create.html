@@ -1,6 +1,6 @@
 <br>
 <div class="container">
-	<form action="../memo/" method="post">
+	<form action="../memo/" enctype="multipart/form-data" method="post">
         {% csrf_token%}
         <span>사용자 아이디</span>
         <input type="text" name="b_name" value="{{check_c.username}}" readonly>
@@ -9,6 +9,10 @@
         <br>
         <h4>본문: </h4>
         <textarea cols=40 rows=10 name="body"></textarea>
+        <br>
+        <h4>사진: </h4>
+        <input type="file" name="t_img" accept="image/*">
+        <span>이미지는 600x400입니다. 수정이 되지 않으니 신중히 올려주세요.</span>
         <br>
         <br>
         <input class="btn btn-dark" type="submit" value="글쓰기">

@@ -15,6 +15,7 @@ class User (models.Model):
 
 class Tproducts (models.Model) :
     tid = models.AutoField(primary_key=True)
+    t_userid = models.CharField(max_length=50, verbose_name='아이디')
     tname = models.CharField(max_length=50, verbose_name="여행상품", unique=True)
     start_date = models.DateTimeField(auto_now_add=True, verbose_name='등록날짜')
     s_trip1 = models.DateField(verbose_name='출발날짜')
@@ -40,10 +41,8 @@ class Memo(models.Model):
     title = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
     body = models.TextField()
-    img = models.ImageField(blank=True, upload_to="images", null=True)
-
+    t_img = models.ImageField(blank=True, upload_to="images", null=True)
     def __str__(self):
         return self.title
-
     def summary(self):
         return self.body[:100]

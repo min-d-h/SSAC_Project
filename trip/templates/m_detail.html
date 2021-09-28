@@ -10,12 +10,20 @@
                 <p>{{ memo2.body }}</p> 
                 <a href="{% url 'm_home' %}">홈으로 가기</a>
                 <br>
-                <!-- {% if memo.img %}
-                    <img src="{{ memo.images.url }}" width="500" height="500">
-                {% endif %} -->
+                {% if memo2.t_img %}
+                    <img src="{{ memo2.t_img.url }}" width="600" height="400">
+                {% endif %}
                 <br>
+                {% if memo2.b_name == check_c.username %}
                 <a href="{% url 'update' memo2.id %}">수정하기</a>
                 <a href="{% url 'delete' memo2.id %}">삭제하기</a>
+                {% elif memo2.b_name != check_c.username %}
+                <a href="#">수정 할 수 없습니다. 아이디를 확인하세요.</a>
+                {% endif %}
             </div>
+            <h1>확인합시다.</h1>
+            <h1>{{check_c.username}}</h1>
+            <h1>{{memo2.b_name}}</h1>
+        
         </div>
     </div>
