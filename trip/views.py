@@ -1,11 +1,12 @@
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import User, Tproducts # Mynote
+from django.utils import timezone
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.contrib.sessions.models import Session
+from .models import User, Tproducts, Memo # Mynote
 import random
-
+from .forms import MemoUpdate
 # Create your views here.
 
 ###############################################
@@ -317,6 +318,83 @@ def m_ticket (req):
     # search1 = User.objects.filter(userid=req.POST.get('id'), username=req.POST.get('name')).values_list(('password'), flat=True).first()
     qq = Tproducts.objects.filter(tname=req.POST.get('tname'))
     return render(req, 'm_ticket.html')
+
+###############################################
+# 메모장
+###############################################
+def m_home(req):
+    sess = req.session.get('userid')
+    check_c = User.objects.get(userid=sess)
+    memo = Memo.objects
+    contact = {
+        'check_c' : check_c,
+        'memo' : memo
+    }
+    return render (req, 'm_home.html', contact)
+
+def memo(req):
+    memo = Memo()
+    memo.b_name = req.POST['b_name']
+    memo.title = req.POST['title']
+    memo.body = req.POST['body']
+    # memo.img = req.POST['img']
+    memo.pub_date = timezone.datetime.now()
+    memo.save()
+    return redirect('../m_detail/' + str(memo.id))
+
+def m_create(req):
+    sess = req.session.get('userid')
+    check_c = User.objects.get(userid=sess)
+    memo = Memo.objects
+    contact = {
+        'check_c' : check_c,
+        'memo' : memo
+    }
+    return render(req, 'm_create.html', contact)
+
+def m_detail(req, memo_id):
+    sess = req.session.get('userid')
+    check_c = User.objects.get(userid=sess)
+    memo = Memo.objects
+    memo_detail = get_object_or_404(Memo, pk=memo_id)
+    contact ={
+        'check_c':check_c,
+        'memo1':memo,
+        'memo2':memo_detail
+    }
+    return render(req, 'm_detail.html', contact)
+
+# def update(req, memo_id):
+#     memo = Memo.objects.get(id=memo_id)
+#     if req.method =='POST':
+#         form = MemoUpdate(req.POST)
+#         if form.is_valid():
+#             memo.title = form.cleaned_data['제목']
+#             memo.body = form.cleaned_data['body']
+#             memo.pub_date = timezone.now()
+#             memo.save()
+#             return redirect('/trip/m_detail/' + str(memo.id))
+#     else:
+#         form = MemoUpdate(instance = memo)
+#         return render(req, 'update.html', {'form':form})
+
+def update(req, memo_id):
+    memo = Memo.objects.get(id=memo_id)
+    if req.method == "POST":
+        memo.title = req.POST['title']
+        memo.body = req.POST['body']
+        memo.pub_date = timezone.datetime.now()
+        memo.save()
+        return redirect('/trip/m_detail/' + str(memo.id))
+    else:
+        return render(req, 'update.html')
+
+def delete(req, memo_id):
+    memo = Memo.objects.get(id=memo_id)
+    memo.delete()
+    return render(req, 'm_home.html')
+
+
 
 ###############################################
 # 한줄 게시판 # 디테일 페이지 

@@ -1,0 +1,16 @@
+<br>
+<div class="container">
+	<form action="../memo/" method="post">
+        {% csrf_token%}
+        <span>사용자 아이디</span>
+        <input type="text" name="b_name" value="{{check_c.username}}" readonly>
+        <br>
+        <span>제목</span><input type="text" name="title">
+        <br>
+        <h4>본문: </h4>
+        <textarea cols=40 rows=10 name="body"></textarea>
+        <br>
+        <br>
+        <input class="btn btn-dark" type="submit" value="글쓰기">
+    </form>
+</div>

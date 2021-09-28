@@ -20,4 +20,13 @@ urlpatterns = [
         path('payment/', views.payment, name="payment"),
         path('cart/', views.cart, name="cart"),
         path('m_ticket/', views.m_ticket, name="m_ticket"),
+
+        #한 줄 게시판 만들기
+        path('memo/', views.memo, name="memo"),
+        path('m_home/', views.m_home, name="m_home"),
+        path('m_create/', views.m_create, name="m_create"),
+        # path('m_detail/', views.m_detail, name="m_detail"),
+        path('m_detail/<int:memo_id>/', views.m_detail, name='m_detail'),
+        path('update/<int:memo_id>/', views.update, name='update'),
+        path('delete/<int:memo_id>/', views.delete, name='delete'),
 ]

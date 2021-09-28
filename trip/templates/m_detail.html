@@ -1,0 +1,21 @@
+
+    <div class="container"> 
+        <div class="card">
+            <div class="card-body">
+                {{memo1.all}}
+                여기는 Detail PAGE
+                <h1>{{ memo2.title }}</h1>
+                <div>{{ memo2.b_name }}</div>
+                <p>{{ memo2.pub_date }}</p>
+                <p>{{ memo2.body }}</p> 
+                <a href="{% url 'm_home' %}">홈으로 가기</a>
+                <br>
+                <!-- {% if memo.img %}
+                    <img src="{{ memo.images.url }}" width="500" height="500">
+                {% endif %} -->
+                <br>
+                <a href="{% url 'update' memo2.id %}">수정하기</a>
+                <a href="{% url 'delete' memo2.id %}">삭제하기</a>
+            </div>
+        </div>
+    </div>

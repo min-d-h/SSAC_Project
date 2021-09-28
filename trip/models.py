@@ -34,3 +34,16 @@ class User_and_T (models.Model):
     idid = models.AutoField(primary_key=True)
     U_id = models.ForeignKey("User", related_name="User", on_delete=models.CASCADE, db_column="User")
     T_id = models.ForeignKey("Tproducts", related_name="Tproducts", on_delete=models.CASCADE, db_column="Tproducts")
+
+class Memo(models.Model):
+    b_name = models.CharField(max_length=50, verbose_name='사용자명')
+    title = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+    body = models.TextField()
+    img = models.ImageField(blank=True, upload_to="images", null=True)
+
+    def __str__(self):
+        return self.title
+
+    def summary(self):
+        return self.body[:100]

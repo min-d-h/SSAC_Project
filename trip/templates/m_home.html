@@ -1,0 +1,21 @@
+<h1>여기는 메모 홈 입니다.</h1>
+
+환영합니다 {{check_c.username}} 님
+<br>
+<a href="{% url 'm_create' %}">게시판 글 생성</a>
+<br>
+<br>
+<span>DB.all list</span>{{memo}}
+<br>
+<span>DB.all list in value</span>{{memo.all}}
+
+<br><br>
+return list value
+<!-- 사용자 아이디 추가해서 해당 아이디가 적은 글 박아버리기-->
+{% for memo in memo.all %}
+    <h1> {{ memo.title}} </h1>
+    <div> 사용자 아이디 : {{ memo.b_name }}</div>
+    <div> {{ memo.pub_date }} </div>
+    <div> {{ memo.body }} </div>
+    <a href="{% url 'm_detail' memo.id %}">자세히보기</a>
+{% endfor %}
