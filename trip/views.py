@@ -313,12 +313,15 @@ def cart (req) :
 def m_ticket (req):
     sess = req.session.get('userid')
     check_c = User.objects.get(userid=sess)
-    # tpro_detail = get_object_or_404(Tproducts, pk=tpro_id)
     tproducts_all = Tproducts.objects
+    userid = Tproducts.objects.filter(t_userid=sess)
+    print(tproducts_all)
+    print(userid)
     contact = {
         't_all' : tproducts_all,
+        't_id' : userid,
         'check_c' : check_c,
-        # 'tpro_detail' : tpro_detail
+        'sess' : sess
     }
     return render (req, 'm_ticket.html', contact)
 
@@ -329,6 +332,7 @@ def m_home(req):
     sess = req.session.get('userid')
     check_c = User.objects.get(userid=sess)
     memo = Memo.objects
+    print(memo)
     contact = {
         'check_c' : check_c,
         'memo' : memo
@@ -382,7 +386,8 @@ def update(req, memo_id):
 def delete(req, memo_id):
     memo = Memo.objects.get(id=memo_id)
     memo.delete()
-    return render(req, 'm_home.html')
+    return redirect('/trip/m_home/')
+    # return render(req, 'm_home.html')
 
 
 

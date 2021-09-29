@@ -23,9 +23,11 @@
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#page-top">Min's Travel</a>
                 <span id="username_c">환영합니다 {{cccc.username}} 님</span> <span>&nbsp;&nbsp;</span>
-                <a class="small" href="{% url 'logout' %}">로그아웃</a>
-                    <span>&#09;&#124;&#124;</span>
-                <a class="small" href="{% url 'mypage' %}">마이페이지</a>
+                    <a class="small" href="{% url 'logout' %}">로그아웃</a>
+                        <span>&#09;&#124;&#124;</span>
+                    <a class="small" href="{% url 'mypage' %}">마이페이지</a>
+                        <span>&#09;&#124;&#124;</span>
+                    <a class="small" href="{% url 'm_ticket' %}">Myticket?</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu 
                     <i class="fas fa-bars"></i>
@@ -207,20 +209,5 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
         <!-- 여기는 랜덤이미지 관련 자료 -->
-<script>
-
-function cccc10() {
-    $('').hasClass(navbar-shrink)
-    const rr1 = $('#tname10').attr('value');
-    const rr2 = $('#country10').attr('value');
-    const rr3 = $("select[name=count10]").val();
-    $('#pp1').html(m_1 + rr1 + m_4);
-    $('#pp2').html(m_2 + rr2 + m_4);
-    $('#pp3').html(m_3 + rr3 + m_4);
-    document.documentElement.scrollTop = 0;
-}
-        navbar-shrink
-
-</script>
     </body>
 </html>

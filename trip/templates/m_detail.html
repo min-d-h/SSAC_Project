@@ -1,29 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Notice Board</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static './css/detail.css' %}">
+    <script src="{% static './js/home.js' %}"></script>
+    <div class="page-content container note-has-grid">
+        <ul class="nav nav-pills p-3 mb-3 rounded-pill align-items-center">
+            <i class="fa fa-sticky-note-o"></i>
+            <h2 class="mt-2">한줄게시판:여행의 감동을 남겨주세요.</h2>
+        </ul>
+        <ul class="nav nav-pills p-3 bg-white mb-3 rounded-pill align-items-center">
+            <li class="nav-item">
+                <span class="rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2 active" id="all-category">
+                    <span class="d-none d-md-block"><a style="color: #4c4d4de0;" href="{% url 'main' %}">Main</a></span>
+                    <span>&#09;&#124;&#124;&#09;</span>
+                    <span class="d-none d-md-block"><a style="color: #4c4d4de0;" href="{% url 'm_home' %}">메모 홈</a></span>
+                </span>
+            </li>
+        </ul>
+        <div class="tab-content bg-transparent">
+            <div id="note-full-container" class="note-has-grid row">
+                <div class="col-md-12 single-note-item all-category">
+                    <div class="card card-body">
+                        <span class="side-stick"></span>
+                        <h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Go for lunch">제목: {{ memo2.title }}</h5>
+                        <p class="note-date font-12 text-muted">아이디: {{ memo2.b_name }}<br>{{ memo2.pub_date }}
+                        </p>
 
-    <div class="container"> 
-        <div class="card">
-            <div class="card-body">
-                {{memo1.all}}
-                여기는 Detail PAGE
-                <h1>{{ memo2.title }}</h1>
-                <div>{{ memo2.b_name }}</div>
-                <p>{{ memo2.pub_date }}</p>
-                <p>{{ memo2.body }}</p> 
-                <a href="{% url 'm_home' %}">홈으로 가기</a>
-                <br>
-                {% if memo2.t_img %}
-                    <img src="{{ memo2.t_img.url }}" width="600" height="400">
-                {% endif %}
-                <br>
-                {% if memo2.b_name == check_c.username %}
-                <a href="{% url 'update' memo2.id %}">수정하기</a>
-                <a href="{% url 'delete' memo2.id %}">삭제하기</a>
-                {% elif memo2.b_name != check_c.username %}
-                <a href="#">수정 할 수 없습니다. 아이디를 확인하세요.</a>
-                {% endif %}
+                        <div class="note-content">내용
+                            <p class="note-inner-content text-muted" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
+                                {{ memo2.body }}
+                            </p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            {% if memo2.t_img %}
+                            <img src="{{ memo2.t_img.url }}" width="600" height="400">
+                            {% endif %}
+                        </div>
+                            {% if memo2.b_name == check_c.username %}
+                            <span class="mr-1"><i class="fa fa-wrench"></i><a style="color: #4c4d4de0;" href="{% url 'update' memo2.id %}"> 수정하기</a></span>
+                            <span class="mr-1"><i class="fa fa-trash"></i><a style="color: #4c4d4de0;" href="{% url 'delete' memo2.id %}"> 삭제하기</a></span>
+                            {% elif memo2.b_name != check_c.username %}
+                            <span class="mr-1"><i class="fa fa-exclamation"></i><span> 다른 사람의 게시물은 수정 할 수 없습니다.</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1>확인합시다.</h1>
-            <h1>{{check_c.username}}</h1>
-            <h1>{{memo2.b_name}}</h1>
-        
         </div>
     </div>
+</body>
+</html>
