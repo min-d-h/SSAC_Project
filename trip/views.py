@@ -48,6 +48,7 @@ def main (req) :
             a_name = ['싱가포르', '싱가포르', '태국', '태국', '터키', '터키', '대만', '대만']
             allPic2 = a_pic[randNum2-1]
             allran2 = a_name[randNum2-1]
+            memo = Memo.objects
             contact = {
                 'cccc' : check_c,
 
@@ -55,7 +56,8 @@ def main (req) :
                 'eupic' : allran1,
 
                 'anum' : allPic2,
-                'apic' : allran2
+                'apic' : allran2,
+                'memo' : memo
             }
             print("세션 시작! 여기는 메인입니다.", "아이디:", sess)
             return render (req, 'main.html', contact)
