@@ -16,24 +16,23 @@
     </head>
 <body>
     <div class="container mt-4">
+        <a class="btn" type="button" href="{% url 'logout' %}">로그아웃</a>
         <a class="btn" type="button" href="{% url 'mypage' %}">Mypage</a>
         <a class="btn" type="button" href="{% url 'main' %}">Main</a>
-        <a class="btn" type="button" href="{% url 'logout' %}">로그아웃</a>
+        <a class="btn" type="button" href="{% url 'payment' %}">여행지 선택</a>
         <span id="username_c">환영합니다 {{check_c.username}} 님</span> <span>&nbsp;&nbsp;</span>
     </div>
     <!-- for문 돌려서 해당 아이디가 결제한 여행내역 뽑아옴 -->
     {% if t_id %}
     {% for t_all in t_all.all reversed %}
     {% if t_all.t_userid == check_c.username %}
-    <script>
-        console.log("{{t_id}}")
-    </script>
     <div class="container register">
         <div class="row ticket_gr">
             <div class="col-md-3 register-left">
                 <img src="{% static './img/t-1.png' %}" alt=""/>
                 <h3>Welcome</h3>
                 <p>Check the ticket you chose.</p>
+                <a type="button" class="btn my_btn" href="{% url 't_delete' %}">여행 취소</a>
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">

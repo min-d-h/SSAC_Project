@@ -26,6 +26,9 @@
                         <a class="nav-link active" href="{% url 'mypage' %}">Mypage</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'm_ticket' %}">Myticket</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page">어디로 여행가세요? {{nnnn.username}}님</a>
                     </li>
                 </ul>
@@ -58,7 +61,7 @@
                         <div class="col-4 price_info text-center">
                             <h2>Your D&A Timr</h2><br>
                             <!-- 날짜 선택 부분 -->
-                            <div class="justify-content-center">
+                            <div class="justify-content-center mt-1">
                             <input type="hidden" name="start_date"/>
                             <div class="form-group"> 
                                 <div class="input-group date" id="datetimepicker1" data-target-input="nearest"> 

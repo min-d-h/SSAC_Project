@@ -20,6 +20,7 @@ urlpatterns = [
         path('payment/', views.payment, name="payment"),
         path('cart/', views.cart, name="cart"),
         path('m_ticket/', views.m_ticket, name="m_ticket"),
+        path('t_delete/', views.t_delete, name="t_delete"),
 
         #한 줄 게시판 만들기
         path('memo/', views.memo, name="memo"),

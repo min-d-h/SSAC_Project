@@ -327,6 +327,13 @@ def m_ticket (req):
     }
     return render (req, 'm_ticket.html', contact)
 
+def t_delete(req):
+    sess = req.session.get('userid')
+    tpro = Tproducts.objects.get(t_userid=sess)
+    print("여행기록 삭제 완료")
+    tpro.delete()
+    return redirect('../m_ticket/')
+
 ###############################################
 # 메모장
 ###############################################

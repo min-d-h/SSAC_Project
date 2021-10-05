@@ -30,6 +30,8 @@ class Tproducts (models.Model) :
 
     COUNT = (('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'))
     count = models.CharField(max_length=1, verbose_name='인원수', choices=COUNT)
+    def __str__(self):
+        return self.t_userid
 
 class User_and_T (models.Model):
     idid = models.AutoField(primary_key=True)
