@@ -1,0 +1,37 @@
+
+.img_s {
+    margin-right: -15px !important;
+    margin-left: 20px !important;
+}
+
+.login {
+    min-height: 100vh;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.bg-image {
+    /* background-image: url("{% static './img/login.jpg' %}"); */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.login-heading {
+    font-weight: 300;
+}
+
+.btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+}
+
+.my_btn {
+    background-color: #7391b6;
+    color: whitesmoke;
+}
+
+.my_btn_c {
+    background-color: #794a4f;
+    color: whitesmoke;
+}
