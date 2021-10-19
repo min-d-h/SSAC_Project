@@ -16,7 +16,7 @@ class User (models.Model):
 class Tproducts (models.Model) :
     tid = models.AutoField(primary_key=True)
     t_userid = models.CharField(max_length=50, verbose_name='아이디')
-    tname = models.CharField(max_length=50, verbose_name="여행상품", unique=True)
+    tname = models.CharField(max_length=50, verbose_name="여행상품")
     start_date = models.DateTimeField(auto_now_add=True, verbose_name='등록날짜')
     s_trip1 = models.DateField(verbose_name='출발날짜')
     s_trip2 = models.DateField(verbose_name='도착날짜')

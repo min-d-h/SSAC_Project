@@ -329,7 +329,7 @@ def m_ticket (req):
 
 def t_delete(req):
     sess = req.session.get('userid')
-    tpro = Tproducts.objects.get(t_userid=sess)
+    tpro = Tproducts.objects.filter(t_userid=sess).first()
     print("여행기록 삭제 완료")
     tpro.delete()
     return redirect('../m_ticket/')

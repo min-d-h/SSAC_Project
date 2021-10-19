@@ -1,0 +1,219 @@
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 10, 2021 - 15:28:51
+Django version 3.2.7, using settings 'po.settings'
+Starting development server at http://0.0.0.0:331/
+Quit the server with CONTROL-C.
+[10/Oct/2021 15:29:26] "GET /trip/login HTTP/1.1" 301 0
+여기는 로그인입니다.
+[10/Oct/2021 15:29:26] "GET /trip/login/ HTTP/1.1" 200 3088
+[10/Oct/2021 15:29:26] "GET /static/css/login.css HTTP/1.1" 200 596
+[10/Oct/2021 15:29:26] "GET /static/img/login1.jpg HTTP/1.1" 200 103024
+Not Found: /favicon.ico
+[10/Oct/2021 15:29:28] "GET /favicon.ico HTTP/1.1" 404 2446
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+여기는 로그인입니다.
+[15/Oct/2021 17:40:19] "GET /trip/login/ HTTP/1.1" 200 3088
+[15/Oct/2021 17:40:20] "GET /static/css/login.css HTTP/1.1" 200 596
+[15/Oct/2021 17:40:20] "GET /static/img/login1.jpg HTTP/1.1" 200 103024
+October 15, 2021 - 17:40:20
+Django version 3.2.7, using settings 'po.settings'
+Starting development server at http://0.0.0.0:331/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+Not Found: /favicon.ico
+[15/Oct/2021 17:40:20] "GET /favicon.ico HTTP/1.1" 404 2446
+로그인 성공
+[15/Oct/2021 17:41:34] "POST /trip/login_s/ HTTP/1.1" 302 0
+세션 시작! 여기는 메인입니다. 아이디: qwe
+[15/Oct/2021 17:41:34] "GET /trip/main/ HTTP/1.1" 200 22751
+[15/Oct/2021 17:41:35] "GET /static/css/main.css HTTP/1.1" 200 218082
+[15/Oct/2021 17:41:35] "GET /static/js/main.js HTTP/1.1" 200 1505
+[15/Oct/2021 17:41:36] "GET /static/img/m-1.png HTTP/1.1" 200 2519791
+[15/Oct/2021 17:41:36] "GET /static/img/m-2.jpg HTTP/1.1" 200 45586
+[15/Oct/2021 17:41:38] "GET /static/img/bg_002.png HTTP/1.1" 200 3167935
+[15/Oct/2021 17:41:38] "GET /static/img/ran/eu4.png HTTP/1.1" 200 2965259
+[15/Oct/2021 17:41:38] "GET /static/img/ran/a5.png HTTP/1.1" 200 3914035
+trip.Memo.objects
+[15/Oct/2021 17:44:35] "GET /trip/m_home/ HTTP/1.1" 200 22410
+[15/Oct/2021 17:44:35] "GET /static/js/home.js HTTP/1.1" 200 2795
+[15/Oct/2021 17:44:35] "GET /static/css/home.css HTTP/1.1" 200 3611
+[15/Oct/2021 17:44:40] "GET /trip/m_detail/45/ HTTP/1.1" 200 3084
+[15/Oct/2021 17:44:40] "GET /static/css/detail.css HTTP/1.1" 200 3617
+[15/Oct/2021 17:44:40] "GET /media/images/KakaoTalk_20210915_202010057.jpg HTTP/1.1" 200 238908
+[15/Oct/2021 17:44:45] "GET /trip/m_detail/44/ HTTP/1.1" 200 3116
+[15/Oct/2021 17:44:54] "GET /trip/m_detail/44/ HTTP/1.1" 200 3116
+[15/Oct/2021 17:44:56] "GET /trip/m_detail/43/ HTTP/1.1" 200 3145
+[15/Oct/2021 17:44:56] "GET /media/images/emmet-fe70d8bbd77eb5ec2f0a84f515f5121b.png HTTP/1.1" 200 202813
+세션 시작! 여기는 메인입니다. 아이디: qwe
+[15/Oct/2021 17:45:03] "GET /trip/main/ HTTP/1.1" 200 22751
+[15/Oct/2021 17:45:04] "GET /static/img/ran/eu9.png HTTP/1.1" 200 2833680
+[15/Oct/2021 17:45:04] "GET /static/img/ran/a1.png HTTP/1.1" 200 4149980
+세선이 짤렸다고??
+[16/Oct/2021 10:33:14] "GET /trip/main/ HTTP/1.1" 302 0
+여기는 로그인입니다.
+[16/Oct/2021 10:33:14] "GET /trip/login/ HTTP/1.1" 200 3088
+[16/Oct/2021 10:33:14] "GET /static/css/login.css HTTP/1.1" 200 596
+[16/Oct/2021 10:33:14] "GET /static/img/login1.jpg HTTP/1.1" 200 103024
+Not Found: /
+[17/Oct/2021 10:15:33] "GET / HTTP/1.1" 404 2395
+Not Found: /favicon.ico
+[17/Oct/2021 10:15:33] "GET /favicon.ico HTTP/1.1" 404 2446
+여기는 로그인입니다.
+[17/Oct/2021 10:15:52] "GET /trip/login/ HTTP/1.1" 200 3088
+[17/Oct/2021 10:15:52] "GET /static/css/login.css HTTP/1.1" 304 0
+[17/Oct/2021 10:15:52] "GET /static/img/login1.jpg HTTP/1.1" 304 0
+로그인 성공
+[17/Oct/2021 10:16:11] "POST /trip/login_s/ HTTP/1.1" 302 0
+세션 시작! 여기는 메인입니다. 아이디: qwe
+[17/Oct/2021 10:16:11] "GET /trip/main/ HTTP/1.1" 200 22753
+[17/Oct/2021 10:16:11] "GET /static/img/ran/a2.png HTTP/1.1" 304 0
+[17/Oct/2021 10:16:11] "GET /static/css/main.css HTTP/1.1" 304 0
+[17/Oct/2021 10:16:11] "GET /static/img/m-2.jpg HTTP/1.1" 304 0
+[17/Oct/2021 10:16:11] "GET /static/js/main.js HTTP/1.1" 200 1505
+[17/Oct/2021 10:16:11] "GET /static/img/ran/eu12.png HTTP/1.1" 404 1809
+[17/Oct/2021 10:16:11] "GET /static/img/ran/eu12.png HTTP/1.1" 404 1809
+[17/Oct/2021 10:16:12] "GET /static/img/m-1.png HTTP/1.1" 200 2519791
+[17/Oct/2021 10:16:12] "GET /static/img/bg_002.png HTTP/1.1" 200 3167935
+[17/Oct/2021 12:37:38] "GET /trip/logout/ HTTP/1.1" 302 0
+여기는 로그인입니다.
+[17/Oct/2021 12:37:38] "GET /trip/login/ HTTP/1.1" 200 3088
+로그인 성공
+[17/Oct/2021 12:37:45] "POST /trip/login_s/ HTTP/1.1" 302 0
+세션 시작! 여기는 메인입니다. 아이디: qwe
+[17/Oct/2021 12:37:45] "GET /trip/main/ HTTP/1.1" 200 22741
+[17/Oct/2021 12:37:45] "GET /static/img/ran/eu12.png HTTP/1.1" 404 1809
+[17/Oct/2021 12:37:46] "GET /static/img/ran/a5.png HTTP/1.1" 200 3914035
+trip.Tproducts.objects
+<QuerySet [<Tproducts: qwe>]>
+[17/Oct/2021 12:38:11] "GET /trip/m_ticket/ HTTP/1.1" 200 4289
+[17/Oct/2021 12:38:12] "GET /static/css/m_ticket.css HTTP/1.1" 200 2838
+[17/Oct/2021 12:38:12] "GET /static/img/t-1.png HTTP/1.1" 200 9689
+세션 시작! 여기는 메인입니다. 아이디: qwe
+[17/Oct/2021 12:38:32] "GET /trip/main/ HTTP/1.1" 200 22739
+[17/Oct/2021 12:38:33] "GET /static/img/ran/eu1.png HTTP/1.1" 200 2005088
+세션확인, payment페이지
+[17/Oct/2021 12:39:11] "GET /trip/payment/ HTTP/1.1" 200 30847
+[17/Oct/2021 12:39:12] "GET /static/css/cart.css HTTP/1.1" 200 205770
+[17/Oct/2021 12:39:12] "GET /static/img/pay/eu2.png HTTP/1.1" 200 223249
+[17/Oct/2021 12:39:12] "GET /static/img/pay/eu11.png HTTP/1.1" 200 51311
+[17/Oct/2021 12:39:12] "GET /static/img/pay/eu3.png HTTP/1.1" 200 277036
+[17/Oct/2021 12:39:12] "GET /static/img/pay/eu7.png HTTP/1.1" 200 231235
+[17/Oct/2021 12:39:12] "GET /static/img/pay/eu5.png HTTP/1.1" 200 283328
+[17/Oct/2021 12:39:12] "GET /static/img/pay/eu13.png HTTP/1.1" 200 400574
+[17/Oct/2021 12:39:12] "GET /static/img/pay/a6.png HTTP/1.1" 200 328055
+[17/Oct/2021 12:39:12] "GET /static/img/pay/a1.png HTTP/1.1" 200 324767
+[17/Oct/2021 12:39:12] "GET /static/img/pay/a7.png HTTP/1.1" 200 239298
+[17/Oct/2021 12:39:12] "GET /static/img/pay/a4.png HTTP/1.1" 200 292717
+[17/Oct/2021 12:39:22] "GET /trip/logout/ HTTP/1.1" 302 0
+여기는 로그인입니다.
+[17/Oct/2021 12:39:22] "GET /trip/login/ HTTP/1.1" 200 3088
+로그인 실패
+[17/Oct/2021 12:39:25] "POST /trip/login_s/ HTTP/1.1" 302 0
+여기는 로그인입니다.
+[17/Oct/2021 12:39:25] "GET /trip/login/ HTTP/1.1" 200 3088
+여기는 회원가입입니다.
+[17/Oct/2021 12:39:27] "GET /trip/signup/ HTTP/1.1" 200 6073
+[17/Oct/2021 12:39:27] "GET /static/css/signup.css HTTP/1.1" 200 416
+[17/Oct/2021 12:39:27] "GET /static/img/my-1.jpg HTTP/1.1" 200 58064
+else탔다
+회원가입 완료
+[17/Oct/2021 12:40:12] "POST /trip/signup_s/ HTTP/1.1" 200 3088
+로그인 성공
+[17/Oct/2021 12:40:25] "POST /trip/login_s/ HTTP/1.1" 302 0
+세션 시작! 여기는 메인입니다. 아이디: joygd
+[17/Oct/2021 12:40:25] "GET /trip/main/ HTTP/1.1" 200 22753
+[17/Oct/2021 12:40:26] "GET /static/img/ran/eu10.png HTTP/1.1" 200 2180401
+[17/Oct/2021 12:40:26] "GET /static/img/ran/a8.png HTTP/1.1" 200 4148314
+Not Found: /
+[17/Oct/2021 14:51:21] "GET / HTTP/1.1" 404 2395
+여기는 로그인입니다.
+[17/Oct/2021 14:51:36] "GET /trip/login/ HTTP/1.1" 200 3088
+[17/Oct/2021 14:51:36] "GET /static/css/login.css HTTP/1.1" 304 0
+[17/Oct/2021 14:51:36] "GET /static/img/login1.jpg HTTP/1.1" 304 0
+로그인 성공
+[17/Oct/2021 14:51:44] "POST /trip/login_s/ HTTP/1.1" 302 0
+세션 시작! 여기는 메인입니다. 아이디: qwe
+[17/Oct/2021 14:51:44] "GET /trip/main/ HTTP/1.1" 200 22747
+[17/Oct/2021 14:51:44] "GET /static/js/main.js HTTP/1.1" 200 1505
+[17/Oct/2021 14:51:44] "GET /static/css/main.css HTTP/1.1" 200 218082
+[17/Oct/2021 14:51:45] "GET /static/img/m-2.jpg HTTP/1.1" 200 45586
+[17/Oct/2021 14:51:45] "GET /static/img/m-1.png HTTP/1.1" 200 2519791
+[17/Oct/2021 14:51:45] "GET /static/img/ran/eu14.png HTTP/1.1" 200 2068539
+[17/Oct/2021 14:51:45] "GET /static/img/ran/a8.png HTTP/1.1" 200 4148314
+[17/Oct/2021 14:51:47] "GET /static/img/bg_002.png HTTP/1.1" 200 3167935
+trip.Memo.objects
+[17/Oct/2021 14:52:46] "GET /trip/m_home/ HTTP/1.1" 200 22410
+[17/Oct/2021 14:52:46] "GET /static/js/home.js HTTP/1.1" 200 2795
+[17/Oct/2021 14:52:46] "GET /static/css/home.css HTTP/1.1" 200 3611
+[17/Oct/2021 14:52:57] "GET /trip/m_detail/43/ HTTP/1.1" 200 3145
+[17/Oct/2021 14:52:57] "GET /static/css/detail.css HTTP/1.1" 200 3617
+[17/Oct/2021 14:52:57] "GET /media/images/emmet-fe70d8bbd77eb5ec2f0a84f515f5121b.png HTTP/1.1" 200 202813
+세션확인, payment페이지
+[17/Oct/2021 14:53:21] "GET /trip/payment/ HTTP/1.1" 200 30847
+[17/Oct/2021 14:53:21] "GET /static/img/pay/eu1.png HTTP/1.1" 200 292082
+[17/Oct/2021 14:53:21] "GET /static/css/cart.css HTTP/1.1" 200 205770
+[17/Oct/2021 14:53:21] "GET /static/img/pay/eu3.png HTTP/1.1" 200 277036
+[17/Oct/2021 14:53:21] "GET /static/img/pay/a1.png HTTP/1.1" 200 324767
+[17/Oct/2021 14:53:21] "GET /static/img/pay/eu12.png HTTP/1.1" 200 56352
+[17/Oct/2021 14:53:21] "GET /static/img/pay/a4.png HTTP/1.1" 200 292717
+[17/Oct/2021 14:53:21] "GET /static/img/pay/eu6.png HTTP/1.1" 200 364734
+[17/Oct/2021 14:53:21] "GET /static/img/pay/eu7.png HTTP/1.1" 200 231235
+[17/Oct/2021 14:53:21] "GET /static/img/pay/a5.png HTTP/1.1" 200 335962
+[17/Oct/2021 14:53:21] "GET /static/img/pay/a7.png HTTP/1.1" 200 239298
+[17/Oct/2021 14:53:21] "GET /static/img/pay/eu14.png HTTP/1.1" 200 375474
+세션확인, payment페이지
+[17/Oct/2021 14:53:37] "GET /trip/payment/ HTTP/1.1" 200 30846
+[17/Oct/2021 14:53:37] "GET /static/img/pay/eu5.png HTTP/1.1" 200 283328
+[17/Oct/2021 14:53:37] "GET /static/img/pay/eu11.png HTTP/1.1" 200 51311
+[17/Oct/2021 14:53:37] "GET /static/img/pay/eu2.png HTTP/1.1" 200 223249
+[17/Oct/2021 14:53:37] "GET /static/img/pay/a6.png HTTP/1.1" 200 328055
+[17/Oct/2021 14:53:37] "GET /static/img/pay/a3.png HTTP/1.1" 200 305569
+[17/Oct/2021 14:53:37] "GET /static/img/pay/a8.png HTTP/1.1" 200 338518
+세션확인, payment페이지
+[17/Oct/2021 14:53:42] "GET /trip/payment/ HTTP/1.1" 200 30846
+[17/Oct/2021 14:53:42] "GET /static/img/pay/eu13.png HTTP/1.1" 200 400574
+trip.Memo.objects
+[17/Oct/2021 14:54:54] "GET /trip/m_home/ HTTP/1.1" 200 22410
+세션 시작! 여기는 메인입니다. 아이디: joygd
+[17/Oct/2021 18:45:50] "GET /trip/main/ HTTP/1.1" 200 22759
+[17/Oct/2021 18:45:50] "GET /static/img/m-2.jpg HTTP/1.1" 304 0
+[17/Oct/2021 18:45:50] "GET /static/css/main.css HTTP/1.1" 304 0
+[17/Oct/2021 18:45:50] "GET /static/img/m-1.png HTTP/1.1" 304 0
+[17/Oct/2021 18:45:50] "GET /static/js/main.js HTTP/1.1" 304 0
+[17/Oct/2021 18:45:51] "GET /static/img/ran/a7.png HTTP/1.1" 200 2497575
+[17/Oct/2021 18:45:51] "GET /static/img/ran/eu13.png HTTP/1.1" 200 3283590
+[17/Oct/2021 18:45:51] "GET /static/img/bg_002.png HTTP/1.1" 304 0
+[17/Oct/2021 18:45:53] "GET /trip/logout/ HTTP/1.1" 302 0
+여기는 로그인입니다.
+[17/Oct/2021 18:45:53] "GET /trip/login/ HTTP/1.1" 200 3088
+로그인 성공
+[17/Oct/2021 18:46:00] "POST /trip/login_s/ HTTP/1.1" 302 0
+세션 시작! 여기는 메인입니다. 아이디: qwe
+[17/Oct/2021 18:46:00] "GET /trip/main/ HTTP/1.1" 200 22745
+[17/Oct/2021 18:46:00] "GET /static/img/ran/a6.png HTTP/1.1" 200 3811095
+[17/Oct/2021 18:46:01] "GET /static/img/ran/eu5.png HTTP/1.1" 200 3156849
+trip.Memo.objects
+[17/Oct/2021 18:46:20] "GET /trip/m_home/ HTTP/1.1" 200 22410
+[17/Oct/2021 18:46:20] "GET /static/css/home.css HTTP/1.1" 304 0
+[17/Oct/2021 18:46:20] "GET /static/js/home.js HTTP/1.1" 304 0
+[17/Oct/2021 18:46:39] "GET /trip/m_detail/37/ HTTP/1.1" 200 3227
+[17/Oct/2021 18:46:39] "GET /static/css/detail.css HTTP/1.1" 200 3617
+[17/Oct/2021 18:46:39] "GET /media/images/314827.jpg HTTP/1.1" 200 54313
+Not Found: /favicon.ico
+[17/Oct/2021 20:33:15] "GET /favicon.ico HTTP/1.1" 404 2446
+여기는 로그인입니다.
+[19/Oct/2021 13:49:33] "GET /trip/login/ HTTP/1.1" 200 3088
+[19/Oct/2021 13:49:33] "GET /static/css/login.css HTTP/1.1" 200 596
+[19/Oct/2021 13:49:33] "GET /static/img/login1.jpg HTTP/1.1" 200 103024
+Not Found: /favicon.ico
+[19/Oct/2021 13:49:34] "GET /favicon.ico HTTP/1.1" 404 2446
+Not Found: /
+[19/Oct/2021 13:49:37] "GET / HTTP/1.1" 404 2395
+Not Found: /
+[19/Oct/2021 13:52:21] "GET / HTTP/1.1" 404 2395
