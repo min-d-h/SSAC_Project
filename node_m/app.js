@@ -6,6 +6,15 @@ const app = express();
 const port = 8000;
 const body = require( 'body-parser' );
 
+var mysql = require( 'mysql' );
+var conn = mysql.createConnection({
+	user: 'root',
+	password: 'mindhq!@3',
+	database: 'min'
+});
+
+
+
 app.set( 'view engine', 'ejs'); 
 // view의 확장인 ejs 를 사용하도록 도와주는 장치..?
 app.set( 'views', __dirname + '/views');
@@ -26,21 +35,67 @@ app.get('/test', ( req, res ) => {
     res.render( 'test', { id:5, name:'alsehd' } );
 });
 
-app.get( '/form', ( req, res ) => {
-    res.render('form');
+//#########################
+// chats
+//#########################
+app.get( '/chat1', ( req, res ) => {
+    console.log(req.url)
+    res.render('chat1');
+});
+app.get( '/chat2', ( req, res ) => {
+    res.render('chat2');
+});
+//#########################
+//메인
+//#########################
+app.get( '/main', ( req, res ) => {
+    res.render('main');
 });
 
-//post로 값이 넘어오면 사용한다.
-app.post('/form_s', ( req, res ) => {
+//#########################
+//로그인
+//#########################
+app.get( '/login', ( req, res ) => {
+    res.render('login');
+});
+app.post('/login_s', ( req, res ) => {
     console.log(req.body)
+    // console.log(req.query)
+    // console.log(req.headers)
+    // console.log('여기는 쿠키다!'+req.headers.cookie)
     var nnnn = req.body.nnnn;
     var aaaa = req.body.aaaa;
-    res.render( 'form_s', { nnnn:nnnn, aaaa:aaaa })
-    res.send('잘~ 들어왔다');
+    var eeer = "페이지를 확인하세요.";
+    var ssss = "select * from sec_t where id='"+nnnn+"';";
+    // var ssss = "select * from sec_t where id='hanjo';";
+    // var abcd = conn.query (ssss, function( err, res ) {
+    //     if( err ){
+    //         console.log( 'failed!! : ' + err );
+    //     }
+    //     else {
+    //         console.log( "okokok" );
+    //     }
+    // });
+    conn.query (ssss, function( err, ress ) {
+        if (err){
+            console.log ( "잘못된 정보" );
+        }
+        else {
+            for (var i = 0; i < ress.length; i++) {
+                console.log ( "아이디 : " + ress[i]["id"] );
+                console.log ( "이름 : " + ress[i]["name"] );
+                console.log ( "생일 : " + ress[i]["birthday"] );
+                console.log ( ress.length );
+                console.log ( ress );
+            };
+            console.log("for mooooon : "+asdasd)
+        }
+        res.render( 'login_s', { err:err, res:ress })
+    });
 });
-//웹 브라우저에 보낼때는 res.send or render 를 통해 보내게 된다.
 
+// 웹 브라우저에 보낼때는 res.send or render 를 통해 보내게 된다.
 // 아래 app을 들을 준비가 되었는데, 9999포트로 접속할 때 아래를 실행시킬것이다.
 app.listen( port, () => {
     console.log('331');
-});
+})
