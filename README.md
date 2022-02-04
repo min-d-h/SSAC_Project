@@ -22,9 +22,7 @@
 | Three |☑️|☑️|☑️| 🔥 개발 공부 시작 (SBP & CodingON ) |
 | Four |☑️|☑️|☑️| ✨ Persnal Project(Django) & Team Project (Node.js)  |
 | Five |☑️|☑️|☑️| 📝 취업을 위한 resume & Portfolio 제작 |
-| Six |☑️|☑️|☑️| ✔️ 취업하자! |
-| Seven |☑️|☑️| | 💡 취업!!!!!!!!!! 했다. 경력 쌓기 시작  |
-| Eight | | | | 다음 단계를 위해 기다림~ |
+| Six | | | | 다음 단계를 위해 기다림~ |
 
 <br/>
 <br/>
