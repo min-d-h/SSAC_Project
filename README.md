@@ -52,7 +52,8 @@ Front-End stack💻             |  Front-end stack💻 |  Etc..💻
 
 #### My Project Point
 
-💡 기존 부트스트랩(bootstrap)
+💡 기존 부트스트랩(bootstrap)을 이용해 제작한 페이지를 입맛에 맞게 수정.
+💡 전체적인 색상과 필요한 부분에 대해 (JS)를 이용, 페이지 구현
 
 
 
